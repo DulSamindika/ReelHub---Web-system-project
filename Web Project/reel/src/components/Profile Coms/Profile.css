@@ -1,0 +1,33 @@
+.profile-page {
+    position: relative;
+  }
+  
+  .cover-photo {
+    background-image: url(/public/Images/banner.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 300px; /* Adjust height as needed */
+    z-index: -1;
+    margin-top: 0;
+    left: 0;
+  }
+  
+  .profile-container {
+    background-color: white;
+    border-radius: 20px;
+    margin-top: -20px; /* Adjust as needed */
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    
+  }
+  
+  .profile-picture {
+    
+  width: 200px; /* Adjust as needed */
+  height: 250px; /* Adjust as needed */
+  margin-top: -100px;
+  position: relative;
+  
+  }

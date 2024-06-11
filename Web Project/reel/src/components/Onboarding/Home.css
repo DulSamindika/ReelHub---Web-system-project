@@ -1,0 +1,42 @@
+@keyframes zoom-in-up {
+    0% {
+      opacity: 0;
+      transform: scale(0) translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+  
+  /* Apply animation to elements */
+  .zoom-in-up {
+    animation: zoom-in-up 15s ease-in-out;
+  }
+
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .fade-in {
+    animation: fade-in 12s ease-in-out;
+  }
+
+  .hero-section {
+    margin-bottom: 500px; /* Add some space between the hero section and the next section */
+  }
+
+  .aos-item {
+    opacity: 0; /* Initially hide the element */
+    transition: opacity 0.5s ease; /* Define a transition for opacity */
+  }
+  
+  .aos-item.aos-animate {
+    opacity: 1; /* When aos-animate class is added, show the element */
+  }

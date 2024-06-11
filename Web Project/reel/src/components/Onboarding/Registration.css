@@ -1,0 +1,43 @@
+.App {
+     /* Center the image horizontally and vertically */
+    height: 100vh;
+  }
+  
+  .Reg-form-container {
+    display: flex;
+    background-image: url(/public/Images/Register.jpg);
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;  /* Ensure image covers the entire viewport */
+    background-position: center;
+  }
+  
+  .Reg-form {
+    width: 420px;
+    box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+    padding-top: 60px;
+    padding-bottom: 50px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .Reg-form-content {
+    padding-left: 12%;
+    padding-right: 12%;
+  }
+  
+  .Reg-form-title {
+    text-align: center;
+    margin-bottom: 1em;
+    font-size: 24px;
+    color: rgb(34, 34, 34);
+    font-weight: 800;
+  }
+  
+  label {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgb(34, 34, 34);
+  }
