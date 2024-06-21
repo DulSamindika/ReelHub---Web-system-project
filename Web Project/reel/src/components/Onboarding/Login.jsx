@@ -1,12 +1,38 @@
-import React from 'react'
+import React, {useState} from 'react';
 import './Login.css';
+import axios from 'axios';
 
-export default function Login() {
+export default function Login({ setUser }) {
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('http://localhost:5000/login', { email, password });
+      const { token } = response.data;
+
+      // Save the token in local storage or state
+      localStorage.setItem('token', token);
+
+      // Set user state
+      setUser({ email, token });
+
+      // Redirect or update UI as needed
+      window.location.href = '/Bio'; // Example redirect after login
+
+    } catch (error) {
+      setError('Invalid email or password');
+    }
+  };
+
   return (
     <div>
       
       <div className="Auth-form-container">
-      <form className="Auth-form">
+      <form className="Auth-form" onSubmit={handleSubmit}>
         <div className="Auth-form-content">
           <h3 className="Auth-form-title">Sign In</h3>
           <div className="form-group mt-3">
@@ -15,6 +41,9 @@ export default function Login() {
               type="email"
               className="form-control mt-1"
               placeholder="Enter email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
             />
           </div>
           <div className="form-group mt-3">
@@ -23,6 +52,9 @@ export default function Login() {
               type="password"
               className="form-control mt-1"
               placeholder="Enter password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
             />
           </div>
           <div className="d-grid gap-8 mt-5">
@@ -34,6 +66,7 @@ export default function Login() {
             Forgot <a href="#v">password?</a>
           </p>
         </div>
+        {error && <p className="text-danger mt-2">{error}</p>}
       </form>
     </div>
     </div>

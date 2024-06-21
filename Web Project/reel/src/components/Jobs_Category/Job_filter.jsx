@@ -1,9 +1,22 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 
-export default function Job_filter() {
+
+export default function Job_filter({onFilter}) {
+
+  const [title, setTitle] = useState('');
+  const [province, setProvince] = useState('');
+  const [position, setPosition] = useState('');
+  const [isPaid, setIsPaid] = useState(null);
+  
+
+  const handleFilter = () => {
+    const filters = { title, province, position, isPaid };
+    onFilter(filters);
+  };
+
   return (
     <div>
       
@@ -19,21 +32,23 @@ export default function Job_filter() {
               type="text"
               placeholder="Search"
               className=" mr-sm-2"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
             />
         </Form>
 
         <Card.Text>
           Filter By
         </Card.Text>
-        <Form.Select aria-label="Select a location">
-      <option>Open this select menu</option>
+        <Form.Select aria-label="Select a location" value={province} onChange={(e) => setProvince(e.target.value)}>
+      <option> select Province</option>
       <option value="1">Western province</option>
       <option value="2">North province</option>
       <option value="3">South province</option>
     </Form.Select>
     <br/>
-    <Form.Select aria-label="Select a position">
-      <option>Open this select menu</option>
+    <Form.Select aria-label="Select a position" value={position} onChange={(e) => setPosition(e.target.value)}>
+      <option>Select Proffession</option>
       <option value="1">Director</option>
       <option value="2">Actor</option>
       <option value="3">Actress</option>
@@ -48,6 +63,8 @@ export default function Job_filter() {
             name="group1"
             type={type}
             id={`inline-${type}-1`}
+            checked={isPaid === true}
+            onChange={() => setIsPaid(true)}
           />
           <Form.Check
             inline
@@ -55,13 +72,16 @@ export default function Job_filter() {
             name="group2"
             type={type}
             id={`inline-${type}-2`}
+            checked={isPaid === false}
+            onChange={() => setIsPaid(false)}
           />
         </div>
       ))}
     </Form>
-        <Button variant="danger" style={{padding:'5px' , width:'200px', margin:'20px'}}>Filter</Button>
+        <Button variant="danger" style={{padding:'5px' , width:'200px', margin:'20px'}} onClick={handleFilter}>Filter</Button>
       </Card.Body>
       </Card>
+
     
     </div>
   )

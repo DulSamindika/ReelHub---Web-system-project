@@ -8,6 +8,7 @@ const fs = require("fs");
 //CREATE
 
 
+
 const uploadsDir = path.join(__dirname, '..', '..', 'public', 'Images', 'uploads');
 if (!fs.existsSync(uploadsDir)) {
   fs.mkdirSync(uploadsDir, { recursive: true });
@@ -26,7 +27,7 @@ const upload = multer({ storage: storage });
 
 router.post("/", upload.array('images', 10),async (req, res) => {
     try {
-      const { title, description, contact, isPaid } = req.body;
+      const { title, description, contact, province, isPaid } = req.body;
       //const img = req.files.map(file => file.path); // array of image paths
   
       const img = req.files.map(file => {
@@ -43,6 +44,7 @@ router.post("/", upload.array('images', 10),async (req, res) => {
         description,
         contact,
         img,
+        province,
         isPaid: isPaid === 'true' 
       });
     

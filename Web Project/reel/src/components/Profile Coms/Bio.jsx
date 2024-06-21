@@ -1,4 +1,4 @@
-import React , {useEffect,useState} from 'react';
+import React , {useEffect,useState, useCallback} from 'react';
 import Button from 'react-bootstrap/Button';
 import {Container, Row, Col, Form } from 'react-bootstrap';
 import { ListGroup } from 'react-bootstrap';
@@ -7,8 +7,8 @@ import { useForm } from 'react-hook-form';
 import axios from 'axios';
 
 
-const Bio = () => { 
-
+const Bio = ({ user }) => { 
+    console.log('User in Bio:', user);
 
     const [bioData, setBioData] = useState({
         profession: [],
@@ -19,7 +19,7 @@ const Bio = () => {
     });
 
     const [show, setShow] = useState(false);
-    const [user, setUser] = useState(null);
+    //const [user, setUser] = useState(null);
     const { register, handleSubmit, reset } = useForm();
 
     const handleClose = () => setShow(false);
@@ -30,26 +30,35 @@ const Bio = () => {
 
   
 
-  const fetchBioData = async () => {
-    if (!user) return;
+  const fetchBioData = useCallback(async () => {
+    if (!user ) 
+        return;
     try {
-        const response = await axios.get('http://localhost:5000/getBio', {
+        const response = await axios.get(`http://localhost:5000/getBio${user.id}`, {
             headers: { 'Authorization': `Bearer ${user.token}` } // Assuming user object contains token
         });
         setBioData(response.data);
     } catch (error) {
         console.error('Error fetching bio data:', error);
     }
-};
+}, [user]);
 
 useEffect(() => {
     fetchBioData();
-}, [user]);
+}, [fetchBioData]);
 
 const onSubmit = async (data) => {
+    if  (!user) {
+        console.error('User is not defined');
+        return;
+      }
+
+      console.log('Submitting bio data for userId:', user.id);
+
     // Ensure data is sent as arrays
     const formattedData = {
         ...data,
+        userId: user.id,
         profession: data.profession.split(',').map(item => item.trim()),
         education: data.education.split(',').map(item => item.trim()),
         experience: data.experience.split(',').map(item => item.trim()),
@@ -67,13 +76,17 @@ const onSubmit = async (data) => {
     }
 };
 
+console.log('User in Bio:', user);
+
+
   return (
     <div>
       <h2>Bio</h2>
       <p>This is the Bio section.</p>
-      {!user ? (
+      
+
       <Container>
-      <Button variant="outline-danger" onClick={handleShow}>Adit Bio</Button>
+      <Button variant="outline-danger" onClick={handleShow}> Edit Bio</Button>
       
                 <Row>
                     <Col>
@@ -120,7 +133,7 @@ const onSubmit = async (data) => {
                     </Col>
                 </Row>
             </Container>
-     ) : (
+    
             <Container>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
@@ -133,7 +146,7 @@ const onSubmit = async (data) => {
                             <Form.Control
                                 type="text"
                                 {...register("profession")}
-                                value={bioData.profession.join(', ')}
+                                defaultValue={bioData.profession.join(', ')}
                                 placeholder="Enter professions separated by commas"
                             />
                         </Form.Group>
@@ -142,7 +155,7 @@ const onSubmit = async (data) => {
                             <Form.Control
                                 type="text"
                                 {...register("city")}
-                                value={bioData.city}
+                                defaultValue={bioData.city}
                             />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formEducation">
@@ -150,7 +163,7 @@ const onSubmit = async (data) => {
                             <Form.Control
                                 type="text"
                                 {...register("education")}
-                                value={bioData.education.join(', ')}
+                                defaultValue={bioData.education.join(', ')}
                             />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formExperience">
@@ -158,7 +171,7 @@ const onSubmit = async (data) => {
                             <Form.Control
                                 type="text"
                                 {...register("experience")}
-                                value={bioData.experience.join(', ')}
+                                defaultValue={bioData.experience.join(', ')}
                             />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formAwards">
@@ -166,7 +179,7 @@ const onSubmit = async (data) => {
                             <Form.Control
                                 type="text"
                                 {...register("awards")}
-                                value={bioData.awards.join(', ')}
+                                defaultValue={bioData.awards.join(', ')}
                             />
                         </Form.Group>
                         <Button variant="primary" type="submit">Save Changes</Button>
@@ -174,7 +187,7 @@ const onSubmit = async (data) => {
                 </Modal.Body>
             </Modal>
             </Container>
-            )}
+           
     </div>
   );
 };

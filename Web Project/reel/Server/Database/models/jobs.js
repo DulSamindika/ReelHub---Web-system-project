@@ -5,6 +5,7 @@ const JobSchema = new mongoose.Schema({
     title: {type: String, required:true},
     description: {type: String, required:true},
     contact:{type:String, required:true},
+    province: { type: String, required: true },
     isPaid:{
         type: Boolean, default:false
     }

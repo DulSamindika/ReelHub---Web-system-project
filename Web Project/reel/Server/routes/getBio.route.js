@@ -1,13 +1,19 @@
 const router = require("express").Router();
 const Bio = require("../Database/models/bio");
+//const User = require("../Database/models/users");
+//const { authenticate } = require('../middleware/auth');
 
-
-router.get('/', async (req, res) => {
+router.get('/:userId', async (req, res) => {
     try {
-        const bio = await Bio.findOne({ userId: req.user.id });
+        const userId = req.params.userId;
+        const bio = await Bio.findOne({ userId });
+        if (!bio) {
+            return res.status(404).json({ message: 'Bio not found' });
+        }
         res.json(bio);
     } catch (error) {
-        res.status(500).send(error);
+        console.error('Error fetching bio:',  error);
+        res.status(500).send({ message: 'Server error' });
     }
 });
 

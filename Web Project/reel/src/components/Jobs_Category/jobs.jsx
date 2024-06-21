@@ -13,9 +13,8 @@ export default function Jobs() {
   const [jobs, setJobs] = useState([]);
   const [error, setError] = useState([]);
 
-  useEffect(() => { 
+ /* useEffect(() => { 
 
-  
     axios.get('http://localhost:5000/getJob')
     .then(res => {
       if(res.data.status === 'success' && res.data.data.jobs){
@@ -32,15 +31,37 @@ export default function Jobs() {
         setError('Error fetching from server');
       }
     });
-  },[]);
+  },[]); */
+
+  const fetchJobs = async (filters = {}) => {
+    try {
+      const response = await axios.get('http://localhost:5000/getJob', { params: filters });
+      if (response.data.status === 'success' && response.data.data.jobs) {
+        setJobs(response.data.data.jobs);
+      } else {
+        setError('Unexpected response format from server');
+      }
+    } catch (err) {
+      if (err.response && err.response.status === 403) {
+        setError('Access Denied');
+      } else {
+        setError('Error fetching from server');
+      }
+    }
+  };
+
+  useEffect(() => {
+    fetchJobs();
+  }, []);
 
   return (
     <div>
-      Jobs
+      <h2 style={{ textAlign: 'center', margin:'20px'}}>Opportunities are waiting for you</h2>
+
       <Container>
       <Row>
-      <Col sm={3}>sm=4 < JobFilter/></Col>
-      <Col sm={9}>sm=8 
+      <Col sm={3}> < JobFilter onFilter={fetchJobs}/></Col>
+      <Col sm={9}>
       <Row>
       {
         jobs.map((job,index) => (
