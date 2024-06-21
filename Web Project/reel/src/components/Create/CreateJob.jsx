@@ -6,12 +6,18 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import axios from 'axios';
 
+const provinces = [
+  'Western Province', 'Central Province', 'Eastern Province', 'North Central Province', 'Noeth Western Province', 
+'Sabaragamuwa Province', 'Southern Province', 'Uva Province', 'Nothern Province'
+];
+
 export default function CreateJob() {
 
         const [title, setTitle] = useState("");
         const [description, setDescription] = useState("");
         const [contact, setContact] = useState("");
         const [images, setImages] = useState([]);
+        const [province, setProvince] = useState("");
         const [isPaid, setIsPaid] = useState(false);
       
         const handleFileChange = (e) => {
@@ -29,6 +35,7 @@ export default function CreateJob() {
             formData.append('description', description);
             images.forEach(image => formData.append('images', image));
             formData.append('contact', contact);
+            formData.append('province', province);
             formData.append('isPaid', isPaid);
         
             try {
@@ -45,7 +52,7 @@ export default function CreateJob() {
 
   return (
     <div>
-      Create Job
+      <h2 style={{ textAlign: 'center', margin:'20px'}}>Post Your Job Advertisment</h2>
 
       <Container style={{maxWidth:'700px'}}>
       <Form onSubmit={handleSubmit}>
@@ -76,7 +83,17 @@ export default function CreateJob() {
               onChange={handleFileChange}/>
       </Form.Group>
 
+      <Form.Group controlId="formGridProvince">
+              <Form.Label>Province</Form.Label>
+              <Form.Control as="select" value={province} onChange={(e) => setProvince(e.target.value)}>
+                <option value="">Select Province</option>
+                {provinces.map((province, index) => (
+                  <option key={index} value={province}>{province}</option>
+                ))}
+              </Form.Control>
+      </Form.Group>
 
+      <div>
       <Form.Group className="mb-3" id="formGridCheckbox">
         <Form.Check type="radio" label="Paid" name="paymentStatus" value="Paid"
               checked={isPaid === true} onChange={handleRadioChange}/>
@@ -84,8 +101,9 @@ export default function CreateJob() {
         <Form.Check type="radio" label="Unpaid" name="paymentStatus" value="Unpaid"
               checked={isPaid === false} onChange={handleRadioChange} />
       </Form.Group>
+      </div>
 
-      <Button variant="primary" type="submit">
+      <Button variant="danger" type="submit" style={{alignItems: 'center'}}>
         Submit
       </Button>
     </Form>

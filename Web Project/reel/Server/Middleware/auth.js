@@ -4,7 +4,7 @@ require('dotenv').config();
 const JWT_SECRET = process.env.JWT_SECRET;
 
 const authenticate = async(req, res, next) => {
-    const token = req.header('Authentication')?.replace('Bearer ', '');
+    const token = req.header('Authorization')?.replace('Bearer ', '');
 
     if(!token){
         return res.status(401).json({message: 'Authentication required'});

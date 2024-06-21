@@ -12,19 +12,20 @@ import Portfolio from './Portfolio';
 
 
 
-  const Profile = () => {
+  const Profile = ({ user }) => {
+  console.log('User in Bio:', user);
   const [activeTab, setActiveTab] = useState('bio');
 
   const renderContent = () => {
     switch (activeTab) {
       case 'bio':
-        return < Bio />;
+        return < Bio user={user}/>;
       case 'portfolio':
         return <Portfolio />;
       case 'activity':
         return <Activity />;
       default:
-        return <Bio />;
+        return <Bio user={user}/>;
     }
   };
    
@@ -49,9 +50,9 @@ import Portfolio from './Portfolio';
           <h2>Janaka Bandara</h2>
         </Row>
         <Row className="d-flex justify-content-center text-center">
-          <h4>Actor/Script Writer</h4>
+          <h4>Actor/Script Writer </h4>
         </Row>
-
+        
         <Container className='text-center' style={{margin:'10px'}}>
         <Row>
         <Col  className="d-flex justify-content-end">
