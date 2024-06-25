@@ -12,7 +12,8 @@ const getPosts = require('./routes/getPosts.route.js');
 const createJob = require('./routes/createJob.route.js');
 const getJobs = require('./routes/getJob.route.js');
 const editBio = require('./routes/editBio.route.js');
-const getBio = require('./routes/getBio.route.js')
+const getBio = require('./routes/getBio.route.js');
+const getUser = require('./routes/getUser.route.js')
 const path = require('path');
 
 const PORT = 5000;
@@ -33,7 +34,8 @@ app.use('/getPosts',getPosts);
 app.use('/createJob', createJob);
 app.use('/getJob', getJobs);
 app.use('/editBio', editBio);
-app.use('./getBio', getBio);
+app.use('/getBio', getBio);
+app.use('/getUser', getUser);
 
 app.listen(PORT, ()=> {
     console.log(`Server is running on http://localhost:${PORT}`);

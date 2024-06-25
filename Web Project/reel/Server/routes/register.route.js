@@ -7,6 +7,15 @@ router.post('/', async (req, res) => {
     try {
         const {firstname, secondname, email, password, age } = req.body;
 
+         // Check if the email already exists
+         const existingUser = await User.findOne({ email });
+         if (existingUser) {
+             return res.status(400).json({
+                 status: 'failed',
+                 message: 'Email already exists'
+             });
+         }
+
         // Hash the password
         const saltRounds = 10;
         const hashedPassword = await bcrypt.hash(password, saltRounds);
@@ -29,7 +38,7 @@ router.post('/', async (req, res) => {
 
         if (err.code === 11000) {
             // Handle duplicate key error
-            errorMessage = 'Email already exists';
+            errorMessage = 'Duplication Error';
         } else if (err.name === 'ValidationError') {
             // Handle Mongoose validation error
             errorMessage = Object.values(err.errors).map(val => val.message).join(', ');

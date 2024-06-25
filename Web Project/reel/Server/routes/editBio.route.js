@@ -73,26 +73,45 @@ router.post('/', async (req, res) => {
     
             // Check if the user already has a bio
             let bio = await Bio.findOne({ userId: userId });
+
+            const parseField = (field) => {
+                if (Array.isArray(field)) {
+                    return field;
+                }
+                return field.split(',').map(item => item.trim());
+            };
     
             if (!bio) {
                 // If no bio exists, create a new one
                 bio = new Bio({
                     userId: userId,
-                    profession: profession.split(',').map(item => item.trim()),
+                    /*profession: profession.split(',').map(item => item.trim()),
                     city,
                     education: education.split(',').map(item => item.trim()),
                     experience: experience.split(',').map(item => item.trim()),
-                    awards: awards.split(',').map(item => item.trim())
+                    awards: awards.split(',').map(item => item.trim())*/
+                    
+                profession: parseField(profession),
+                city,
+                education: parseField(education),
+                experience: parseField(experience),
+                awards: parseField(awards)
                 });
     
                 await bio.save();
             } else {
                 // If bio exists, update it
-                bio.profession = profession.split(',').map(item => item.trim());
+                /*bio.profession = profession.split(',').map(item => item.trim());
                 bio.city = city;
                 bio.education = education.split(',').map(item => item.trim());
                 bio.experience = experience.split(',').map(item => item.trim());
-                bio.awards = awards.split(',').map(item => item.trim());
+                bio.awards = awards.split(',').map(item => item.trim());*/
+
+                bio.profession = parseField(profession);
+                bio.city = city;
+                bio.education = parseField(education);
+                bio.experience = parseField(experience);
+                bio.awards = parseField(awards);
     
                 await bio.save();
             }

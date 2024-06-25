@@ -34,9 +34,10 @@ const Bio = ({ user }) => {
     if (!user ) 
         return;
     try {
-        const response = await axios.get(`http://localhost:5000/getBio${user.id}`, {
+        const response = await axios.get(`http://localhost:5000/getBio/${user.id}`, {
             headers: { 'Authorization': `Bearer ${user.token}` } // Assuming user object contains token
         });
+        console.log('Bio data fetched:', response.data);
         setBioData(response.data);
     } catch (error) {
         console.error('Error fetching bio data:', error);
@@ -86,6 +87,7 @@ console.log('User in Bio:', user);
       
 
       <Container>
+      {user && user.id && console.log('User ID:', user.id)}
       <Button variant="outline-danger" onClick={handleShow}> Edit Bio</Button>
       
                 <Row>

@@ -31,7 +31,7 @@ export default function Jobs() {
         setError('Error fetching from server');
       }
     });
-  },[]); */
+  },[]); 
 
   const fetchJobs = async (filters = {}) => {
     try {
@@ -48,7 +48,38 @@ export default function Jobs() {
         setError('Error fetching from server');
       }
     }
+  }; */
+
+  const fetchJobs = async (filters = {}) => {
+    try {
+
+      const validFilters = {};
+      for (const key in filters) {
+        if (filters[key] !== '' && filters[key] !== undefined) {
+          validFilters[key] = filters[key];
+        }
+      }
+
+      const queryString = new URLSearchParams(validFilters).toString();
+      const response = await axios.get(`http://localhost:5000/getJob?${queryString}`);
+      
+      // Update the browser URL with the current filters
+      window.history.pushState(null, '', `?${queryString}`);
+
+      if (response.data.status === 'success' && response.data.data.jobs) {
+        setJobs(response.data.data.jobs);
+      } else {
+        setError('Unexpected response format from server');
+      }
+    } catch (err) {
+      if (err.response && err.response.status === 403) {
+        setError('Access Denied');
+      } else {
+        setError('Error fetching from server');
+      }
+    }
   };
+
 
   useEffect(() => {
     fetchJobs();

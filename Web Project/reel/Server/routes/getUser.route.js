@@ -1,7 +1,5 @@
 const router = require("express").Router();
-const Bio = require("../Database/models/bio");
-//const User = require("../Database/models/users");
-//const { authenticate } = require('../middleware/auth');
+const User = require("../Database/models/users"); 
 const mongoose = require('mongoose');
 
 router.get('/:userId', async (req, res) => {
@@ -13,14 +11,14 @@ router.get('/:userId', async (req, res) => {
             return res.status(400).json({ message: 'Invalid userId format' });
         }
 
-        const bio = await Bio.findOne({ userId });
-        if (!bio) {
-            return res.status(404).json({ message: 'Bio not found' });
+        const user = await User.findById(userId);
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
         }
 
-        res.json(bio);
+        res.json(user);
     } catch (error) {
-        console.error('Error fetching bio:',  error);
+        console.error('Error fetching user:', error);
         res.status(500).send({ message: 'Server error' });
     }
 });

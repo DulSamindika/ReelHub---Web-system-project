@@ -12,10 +12,10 @@ router.get("/", async(req, res) => {
 
         if (title) query.title = new RegExp(title, 'i'); // case-insensitive search
         if (province) query.province = province;
-        if (position) query.position = new RegExp(position, 'i');
+        if (position) query.title = new RegExp(position, 'i');
         if (isPaid !== undefined) query.isPaid = isPaid === 'true';
         
-        const jobs = await Job.find({});
+        const jobs = await Job.find(query);
         res.status(200).json({
             status: 'success',
             data: {

@@ -13,17 +13,44 @@ import Jobs from './components/Jobs_Category/jobs';
 import CreatePost from './components/Create/CreatePost';
 import CreateJob from './components/Create/CreateJob';
 import  Bio from './components/Profile Coms/Bio';
+import {jwtDecode} from 'jwt-decode';
+import EditProfile from './components/Profile Coms/EditProfile';
 
 function App() {
 
   const [user, setUser] = useState(null);
 
-  useEffect(() => {
+ /* useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
       setUser({ token }); // Fetch more user info if needed
     }
   }, []);
+
+  useEffect(() => {
+    // Retrieve token from local storage
+    const token = localStorage.getItem('token');
+    if (token) {
+        const userData = {
+            id: '66519d232b9cd939fd32fcfd',   // Example userId, ideally should decode from token or fetch from server
+            token
+        };
+        setUser(userData);
+    }
+}, []);*/
+
+useEffect(() => {
+  const token = localStorage.getItem('token');
+  if (token) {
+    const decodedToken = jwtDecode(token);
+    const userData = {
+      id: decodedToken.userId,
+      token
+    };
+    setUser(userData);
+  }
+}, []);
+
 
   return (
     <>
@@ -35,12 +62,13 @@ function App() {
         <Route path="/Login" element={<Login setUser={setUser}/>} />
         <Route path="/Reg" element={<Registration />} />
         <Route path="/communi" element={<Wall />} />
-        <Route path="/profile" element={<Profile user={user}/>}/>
+        <Route path="/profile" element={user ?<Profile user={user}/> : <Navigate to="/login" />} />
         <Route path="/jobs" element={<Jobs/>}/>
         <Route path="/createPost" element={<CreatePost/>}/>
         <Route path="/postJob" element={<CreateJob/>}/>
         <Route path="/editBio" element={user ? <Bio user={user} /> : <Navigate to="/login" />} />
         <Route path="/getBio" element={user ? <Bio user={user} /> : <Navigate to="/login" />}/>
+        <Route path='/editProfile' element={<EditProfile/>}/>
       </Routes>
       </Router>
       

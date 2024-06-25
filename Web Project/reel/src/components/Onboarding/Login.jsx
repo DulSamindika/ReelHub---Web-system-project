@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import './Login.css';
 import axios from 'axios';
+import {jwtDecode} from 'jwt-decode';
 
 export default function Login({ setUser }) {
 
@@ -17,8 +18,14 @@ export default function Login({ setUser }) {
       // Save the token in local storage or state
       localStorage.setItem('token', token);
 
+      const decodedToken = jwtDecode(token);
+      const userData = {
+        id: decodedToken.userId,
+        token
+      };
+
       // Set user state
-      setUser({ email, token });
+      setUser(userData);
 
       // Redirect or update UI as needed
       window.location.href = '/Bio'; // Example redirect after login
