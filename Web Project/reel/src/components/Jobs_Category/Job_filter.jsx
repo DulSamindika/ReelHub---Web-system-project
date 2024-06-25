@@ -12,8 +12,18 @@ export default function Job_filter({onFilter}) {
   const [isPaid, setIsPaid] = useState(null);
   
 
-  const handleFilter = () => {
+ /* const handleFilter = () => {
     const filters = { title, province, position, isPaid };
+    onFilter(filters);
+  };*/
+
+  const handleFilter = () => {
+    const filters = { 
+      title, 
+      province: province || undefined,
+      position: position || undefined, 
+      isPaid: isPaid !== null ? isPaid.toString() : undefined, 
+    };
     onFilter(filters);
   };
 
@@ -41,17 +51,17 @@ export default function Job_filter({onFilter}) {
           Filter By
         </Card.Text>
         <Form.Select aria-label="Select a location" value={province} onChange={(e) => setProvince(e.target.value)}>
-      <option> select Province</option>
-      <option value="1">Western province</option>
-      <option value="2">North province</option>
-      <option value="3">South province</option>
+      <option value=""> select Province</option>
+      <option value="Western Province">Western Province</option>
+      <option value="North Province">North Province</option>
+      <option value="South Province">South Province</option>
     </Form.Select>
     <br/>
     <Form.Select aria-label="Select a position" value={position} onChange={(e) => setPosition(e.target.value)}>
-      <option>Select Proffession</option>
-      <option value="1">Director</option>
-      <option value="2">Actor</option>
-      <option value="3">Actress</option>
+      <option value="">Select Proffession</option>
+      <option value="Director">Director</option>
+      <option value="Actor">Actor</option>
+      <option value="Actress">Actress</option>
     </Form.Select>
 
     <Form>

@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect, useCallback} from 'react'
 import Image from 'react-bootstrap/Image';
 import { Container, Row, Col } from 'react-bootstrap';
 import './Profile.css';
@@ -9,12 +9,34 @@ import { Link } from 'react-router-dom';
 import Bio from './Bio'
 import Activity from './Activity';
 import Portfolio from './Portfolio';
+import axios from 'axios';
 
 
 
   const Profile = ({ user }) => {
-  console.log('User in Bio:', user);
+    console.log('User in Profile component:', user);
+  const [userData, setUserData] = useState(null);
   const [activeTab, setActiveTab] = useState('bio');
+
+  const fetchUserData = useCallback(async () => {
+    if (!user || !user.token ) 
+      return;
+
+    try {
+      const response = await axios.get(`http://localhost:5000/getUser/${user.id}`, {
+        headers: { 'Authorization': `Bearer ${user.token}` }
+      });
+
+      setUserData(response.data); // Assuming response.data contains user data
+    } catch (error) {
+      console.error('Error fetching user data:', error);
+    }
+  }, [user]);
+
+  // Fetch user data on component mount
+  useEffect(() => {
+    fetchUserData();
+  }, [fetchUserData]);
 
   const renderContent = () => {
     switch (activeTab) {
@@ -28,6 +50,11 @@ import Portfolio from './Portfolio';
         return <Bio user={user}/>;
     }
   };
+
+  if (!userData) {
+    return <p>Loading...</p>;
+  }
+  
    
   return (
     <div className="profile-page">
@@ -48,9 +75,11 @@ import Portfolio from './Portfolio';
         {/* Additional profile info can be added here */}
         <Row className="d-flex justify-content-center text-center">
           <h2>Janaka Bandara</h2>
+          <h2>{`${userData.firstname} ${userData.secondname}`}</h2>
         </Row>
         <Row className="d-flex justify-content-center text-center">
           <h4>Actor/Script Writer </h4>
+          {console.log('User in Profile component:', user)}
         </Row>
         
         <Container className='text-center' style={{margin:'10px'}}>
@@ -67,7 +96,7 @@ import Portfolio from './Portfolio';
         </Container>
 
         <Card>
-      <Card.Header>
+      <Card.Header className=" d-flex align-items-center">
         <Nav variant="tabs" defaultActiveKey="#first">
           <Nav.Item>
             <Nav.Link active={activeTab === 'bio'} 
@@ -83,6 +112,13 @@ import Portfolio from './Portfolio';
               Activity
             </Nav.Link>
           </Nav.Item>
+
+          <Nav.Item className="ml-auto">
+                <Link to="/editProfile" className="ml-auto">
+                  <Button variant="secondary justify-content-end align-items-right" style={{ marginLeft: '10px' }}>Edit Profile</Button>
+                </Link>
+          </Nav.Item>
+
         </Nav>
       </Card.Header>
       <Card.Body>
