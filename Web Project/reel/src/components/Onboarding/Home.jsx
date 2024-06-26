@@ -51,7 +51,7 @@ export default function Home() {
 
       <Card className="card bg-transparent aos-item"  data-aos='zoom-in-up'>
         <div className="bg-dark shadow rounded-5 p-0">
-          <img src="./Images/abstract2.jpg" width="582" height="442" alt="acting" className="img-fluid rounded-5 no-bottom-radius" loading="lazy" />
+          <img src="./Images/jobplace.jpg" width="582" height="442" alt="acting" className="img-fluid rounded-5 no-bottom-radius" loading="lazy" />
           <Card.Body className="p-5">
             <Card.Title className="fw-lighter text-light">Job Placement</Card.Title>
             <Card.Text className="pb-4 text-secondary">Discover the perfect collaborators for your next project. Our job placement service helps you find skilled professionals in the film industry, from directors to editors, ensuring your vision comes to life.</Card.Text>
@@ -78,7 +78,7 @@ export default function Home() {
 
       <Card className="card bg-transparent" data-aos='zoom-in-up'>
         <div className="bg-dark shadow rounded-5 p-0">
-          <img src="./Images/abstract4.jpg" width="582" height="327" alt="communi" class="img-fluid rounded-5 no-bottom-radius" loading="lazy" />
+          <img src="./Images/equipment.jpg" width="582" height="327" alt="communi" class="img-fluid rounded-5 no-bottom-radius" loading="lazy" />
           <Card.Body className="p-5">
             <Card.Title className="fw-lighter text-light">Hire Equipment</Card.Title>
             <Card.Text className="pb-4 text-secondary">Access high-quality film equipment for your productions. Our equipment rental service offers everything you need, from cameras to lighting, at competitive prices, ensuring your project is well-equipped for success.</Card.Text>
