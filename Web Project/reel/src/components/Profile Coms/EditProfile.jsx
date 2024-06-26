@@ -47,13 +47,14 @@ export default function EditProfile() {
               console.log(response.data);
             } catch (error) {
               console.error("There was an error creating the post!", error);
+          
             }
           };
 
 
   return (
     <div>
-      <h2 style={{ textAlign: 'center', margin:'20px'}}>Edit Your Profile</h2>
+      <h2 style={{ textAlign: 'center', margin:'20px'}}>Edit Your Profile </h2>
       <Container style={{maxWidth:'700px'}}>
       <Form onSubmit={handleSubmit}>
       <Row className="mb-3">
@@ -84,7 +85,7 @@ export default function EditProfile() {
               onChange={handleFileChange}/>
       </Form.Group>
 
-      {imagePreviewUrl && (
+      {imagePreviewUrl && ( 
       <div className="image-preview-container">
       <div className="image-preview-mask">
         <img src={{imagePreviewUrl}} alt="Profile Preview" className="image-preview" />

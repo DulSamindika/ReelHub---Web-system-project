@@ -24,7 +24,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 // Edit profile route
-router.post('/editProfile', upload.single('image'), async (req, res) => {
+router.post('/', upload.single('image'), async (req, res) => {
   try {
     const { firstname, secondname, email } = req.body;
     const userId = req.user._id; // Assume you have user ID from session or JWT
