@@ -15,6 +15,7 @@ import CreateJob from './components/Create/CreateJob';
 import  Bio from './components/Profile Coms/Bio';
 import {jwtDecode} from 'jwt-decode';
 import EditProfile from './components/Profile Coms/EditProfile';
+import Gallery from './components/Gallery/Gallery';
 
 function App() {
 
@@ -69,6 +70,7 @@ useEffect(() => {
         <Route path="/editBio" element={user ? <Bio user={user} /> : <Navigate to="/login" />} />
         <Route path="/getBio" element={user ? <Bio user={user} /> : <Navigate to="/login" />}/>
         <Route path='/editProfile' element={<EditProfile/>}/>
+        <Route path='/gallery' element={<Gallery/>}/>
       </Routes>
       </Router>
       

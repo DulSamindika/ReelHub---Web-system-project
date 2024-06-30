@@ -13,8 +13,9 @@ const createJob = require('./routes/createJob.route.js');
 const getJobs = require('./routes/getJob.route.js');
 const editBio = require('./routes/editBio.route.js');
 const getBio = require('./routes/getBio.route.js');
-const getUser = require('./routes/getUser.route.js')
-const editProfile = require('./routes/editProfile.route.js')
+const getUser = require('./routes/getUser.route.js');
+const editProfile = require('./routes/editProfile.route.js');
+const movieAPI = require('./routes/movie.route.js');
 const path = require('path');
 
 const PORT = 5000;
@@ -38,6 +39,7 @@ app.use('/editBio', editBio);
 app.use('/getBio', getBio);
 app.use('/getUser', getUser);
 app.use('/editProfile', editProfile);
+app.use('/movie', movieAPI);
 
 
 app.listen(PORT, ()=> {
