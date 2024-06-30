@@ -85,7 +85,7 @@ import axios from 'axios';
         <Container className='text-center' style={{margin:'10px'}}>
         <Row>
         <Col  className="d-flex justify-content-end">
-          <Link to='/createPost'>
+          <Link to="/editProfile" state={{ user }}>
           <Button variant="danger">Create a Post</Button>
           </Link></Col>
         <Col className="d-flex justify-content-start">
@@ -114,7 +114,7 @@ import axios from 'axios';
           </Nav.Item>
 
           <Nav.Item className="ml-auto">
-                <Link to="/editProfile" className="ml-auto">
+                <Link to={{ pathname: "/editProfile", state: { user: userData } }} className="ml-auto">
                   <Button variant="secondary justify-content-end align-items-right" style={{ marginLeft: '10px' }}>Edit Profile</Button>
                 </Link>
           </Nav.Item>
@@ -129,6 +129,7 @@ import axios from 'axios';
         </Card.Text>
         
       </Card.Body>
+     
     </Card>
         
       </Container>

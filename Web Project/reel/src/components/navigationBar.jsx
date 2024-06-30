@@ -35,6 +35,7 @@ function navigationBar() {
                   <Link className="text-danger:hover" to='/communi'><span className="nav-link text-danger:hover">Commiunity</span></Link>
                   <Link className="text-danger:hover" to='/profile'><span className="nav-link text-danger:hover">Profile</span></Link>
                   <Link className="text-danger:hover" to='/jobs'><span className="nav-link text-danger:hover">Jobs</span></Link>
+                  <Link className="text-danger:hover" to='/gallery'><span className="nav-link text-danger:hover">Gallery</span></Link>
                   <NavDropdown
                     title="Dropdown"
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
