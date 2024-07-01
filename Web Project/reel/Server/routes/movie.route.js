@@ -1,13 +1,13 @@
-const express = require('express');
+/*const express = require('express');
+const router = express.Router();
 const axios = require('axios');
-const app = express();
 const TMDB_API_KEY = '5fb8e6c4782ab03a6930346a50575111';
 
 
-app.get('/api/:id', async (req, res) => {
-    const movieId = req.params.id;
+router.get('/', async (req, res) => {
+    
     try {
-      const response = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}`, {
+      const response = await axios.get(`https://api.themoviedb.org/3/movie/popular`, {
         params: {
           api_key: TMDB_API_KEY
         }
@@ -28,4 +28,4 @@ app.get('/api/:id', async (req, res) => {
       res.status(500).json({ error: 'Failed to fetch movie details' });
     }
   });
-  
+  */
