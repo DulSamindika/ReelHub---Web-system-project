@@ -12,7 +12,7 @@ import { useLocation } from 'react-router-dom';
 const EditProfile = () => {
 
     const location = useLocation();
-    const { user } = location.state; 
+    const user = location.state?.user; 
     
     const [firstname, setFirstName] = useState("");
     const [secondname, setSecondName] = useState("");
@@ -20,24 +20,19 @@ const EditProfile = () => {
     const [image, setImage] = useState([]);
     const [imagePreviewUrl, setImagePreviewUrl] = useState(null);
         
+    
+
     useEffect(() => {
-      // You can fetch user data if needed using the user object
-      console.log('User in EditProfile:', user);
-    }, [user]);
-
-
-   /* useEffect(() => {
       if (!user) {
-        console.error('User is null, redirecting to login');
-        navigate('/login'); // Redirect to login if user is not defined
-        return;
+          console.error('User is null, redirecting to login');
+          // navigate('/login'); // Uncomment if you want to redirect to login
+          return;
       }
-      console.log('User in EditProfile:', user);
-      // Initialize form fields with user data if available
       setFirstName(user.firstname || "");
       setSecondName(user.secondname || "");
       setEmail(user.email || "");
-    }, [user, navigate]);*/
+      console.log('User in EditProfile:', user);
+  }, [user]);
   
       
     const handleFileChange = (e) => {

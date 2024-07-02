@@ -114,7 +114,7 @@ import axios from 'axios';
           </Nav.Item>
 
           <Nav.Item className="ml-auto">
-                <Link to={{ pathname: "/editProfile", state: { user: userData } }} className="ml-auto">
+                <Link to="/editProfile" state={{user: userData }} className="ml-auto">
                   <Button variant="secondary justify-content-end align-items-right" style={{ marginLeft: '10px' }}>Edit Profile</Button>
                 </Link>
           </Nav.Item>
