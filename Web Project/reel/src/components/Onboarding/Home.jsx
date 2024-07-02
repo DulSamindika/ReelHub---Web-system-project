@@ -19,7 +19,7 @@ export default function Home() {
     <>
     <div className="hero-section">
       <Card className="bg-dark text-white" style={{ height: '500px', padding: 0, margin:0 }}>
-      <Card.Img src="./Images/Hero.jpg" alt="Card image" />
+      <Card.Img src="./Images/Hero.jpg" alt="Card image"  data-aos='zoom-in-up'/>
       <Card.ImgOverlay style={{ display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
         <Card.Title style={{ fontSize: '4rem', textAlign: 'center',paddingTop:'100px' }}>Your film needs you</Card.Title>
         <Card.Text style={{ fontSize: '3rem', textAlign: 'center' }}>
