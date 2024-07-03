@@ -4,13 +4,14 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Image from "react-bootstrap/Image";
 //import Row from 'react-bootstrap/Row';
 
-const SocialPost = ({img,title,description}) => {
+const SocialPost = ({img,title,description, username}) => {
   return ( 
     <>
       <Card style={{ width: "38rem" , margin:"10px"}}>
         <Card.Header variant="dark">
           <Image src="fgh" roundedCircle className="me-2 avatar-sm" />
           Artist Name{" "}
+          {username}
         </Card.Header>
         <ListGroup className="list-group-flush">
           <ListGroup.Item><Card.Title>{title}</Card.Title>

@@ -65,7 +65,7 @@ useEffect(() => {
         <Route path="/communi" element={<Wall />} />
         <Route path="/profile" element={user ?<Profile user={user}/> : <Navigate to="/login" />} />
         <Route path="/jobs" element={<Jobs/>}/>
-        <Route path="/createPost" element={<CreatePost/>}/>
+        <Route path="/createPost" element={<CreatePost user={user}/>}/>
         <Route path="/postJob" element={<CreateJob/>}/>
         <Route path="/editBio" element={user ? <Bio user={user} /> : <Navigate to="/login" />} />
         <Route path="/getBio" element={user ? <Bio user={user} /> : <Navigate to="/login" />}/>

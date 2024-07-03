@@ -85,7 +85,7 @@ import axios from 'axios';
         <Container className='text-center' style={{margin:'10px'}}>
         <Row>
         <Col  className="d-flex justify-content-end">
-          <Link to="/editProfile" state={{ user }}>
+          <Link to="/createPost" state={{ user }}>
           <Button variant="danger">Create a Post</Button>
           </Link></Col>
         <Col className="d-flex justify-content-start">

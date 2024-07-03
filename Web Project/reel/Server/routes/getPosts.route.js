@@ -5,7 +5,7 @@ router.get("/", async(req, res) => {
     
     
     try {
-        const posts = await Post.find({});
+        const posts = await Post.find({}).populate('user', 'username');
         res.status(200).json({
             status: 'success',
             data: {
