@@ -49,7 +49,10 @@ export default function Wall() {
         img = {post.img}
         title = {post.title}
         description = {post.description}
+        username={post.user.username} 
         id = {post._id}
+        
+        
         />
       ))}
        {error && <p style={{color:'red'}}>{error}</p>}

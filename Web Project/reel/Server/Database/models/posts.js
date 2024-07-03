@@ -18,6 +18,7 @@ const PostSchema = new mongoose.Schema(
     img: [{type:String}],
     title: {type: String, required:true, unique:true},
     description: {type:String},
+    author: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
     comments: [CommentSchema],
     react: [ReactionSchema]
     

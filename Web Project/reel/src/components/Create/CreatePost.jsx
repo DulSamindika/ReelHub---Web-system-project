@@ -6,13 +6,15 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import axios from 'axios';
 
-export default function CreatePost() {
+
+export default function CreatePost({ user }) {
 
     
         const [title, setTitle] = useState("");
         const [description, setDescription] = useState("");
         const [images, setImages] = useState([]);
         
+         
       
         const handleFileChange = (e) => {
           setImages([...e.target.files]);
@@ -23,12 +25,14 @@ export default function CreatePost() {
             const formData = new FormData();
             formData.append('title', title);
             formData.append('description', description);
+            formData.append('userId', user.id);
             images.forEach(image => formData.append('images', image));
         
             try {
               const response = await axios.post('http://localhost:5000/create', formData, {
                 headers: {
-                  'Content-Type': 'multipart/form-data'
+                  'Content-Type': 'multipart/form-data',
+                  'Authorization': `Bearer ${user.token}`
                 }
               });
               console.log(response.data);
