@@ -3,6 +3,7 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 const User = require('../Database/models/users');
+//const authenticate = require('../Middleware/auth');
 const router = express.Router();
 
 // Ensure the uploads directory exists
@@ -26,8 +27,12 @@ const upload = multer({ storage: storage });
 // Edit profile route
 router.post('/', upload.single('image'), async (req, res) => {
   try {
-    const { firstname, secondname, email } = req.body;
-    const userId = req.user._id; // Assume you have user ID from session or JWT
+    const { firstname, secondname, email,  userId } = req.body;
+    //const userId = req.user._id; // Assume you have user ID from session or JWT
+   
+    if (!userId) {
+      return res.status(400).json({ message: 'User ID is required' });
+    }
 
     const updateFields = { firstname, secondname, email };
     if (req.file) {
