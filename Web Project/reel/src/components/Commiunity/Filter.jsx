@@ -2,6 +2,8 @@ import React from 'react'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
+import {Link} from 'react-router-dom';
+
 
 export default function Filter() {
   return (
@@ -37,8 +39,9 @@ export default function Filter() {
       <option value="2">Actor</option>
       <option value="3">Actress</option>
     </Form.Select>
-
+       <Link to='/connect'>
         <Button variant="danger" style={{padding:'5px' , width:'200px', margin:'20px'}}>Filter</Button>
+        </Link>
       </Card.Body>
       </Card>
     </div>
