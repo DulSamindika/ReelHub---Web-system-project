@@ -120,7 +120,7 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800,300italic,400italic,600italic,700italic,800italic);
 
-h1, h2, h3, h4, h5 {
+h1, h3, h4, h5 {
   font-family: 'Montserrat', sans-serif;
   color: #e7e7e7;
   margin: 0px;
