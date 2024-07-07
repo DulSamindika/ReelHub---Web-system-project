@@ -1,11 +1,29 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import {Link} from 'react-router-dom';
+import axios from 'axios';
 
 
 export default function Filter() {
+
+  const [name, setName] = useState('');
+  const [city, setCity] = useState('');
+  const [profession, setProfession] = useState('');
+
+
+  const handleFilter = async () => {
+    try {
+        const response = await axios.get('/api/bioFilter', {
+            params: { name, city, profession }
+        });
+        console.log(response.data);
+    } catch (error) {
+        console.error(error);
+    }
+};
+
   return (
     <div>
       Find Artists
@@ -20,27 +38,36 @@ export default function Filter() {
               type="text"
               placeholder="Search"
               className=" mr-sm-2"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
         </Form>
 
         <Card.Text>
           Filter By
         </Card.Text>
-        <Form.Select aria-label="Select a location">
+        <Form.Select 
+        aria-label="Select a location"
+        value={city}
+        onChange={(e) => setCity(e.target.value)}>
       <option>Open this select menu</option>
-      <option value="1">Western province</option>
-      <option value="2">North province</option>
-      <option value="3">South province</option>
+      <option value="Western province">Western province</option>
+      <option value="North province">North province</option>
+      <option value="South province">South province</option>
     </Form.Select>
     <br/>
-    <Form.Select aria-label="Select a position">
+    <Form.Select 
+    aria-label="Select a profession"
+    value={profession}
+    onChange={(e) => setProfession(e.target.value)}>
       <option>Open this select menu</option>
-      <option value="1">Director</option>
-      <option value="2">Actor</option>
-      <option value="3">Actress</option>
+      <option value="Director">Director</option>
+      <option value="Actor">Actor</option>
+      <option value="Actress">Actress</option>
     </Form.Select>
        <Link to='/connect'>
-        <Button variant="danger" style={{padding:'5px' , width:'200px', margin:'20px'}}>Filter</Button>
+        <Button variant="danger" style={{padding:'5px' , width:'200px', margin:'20px'}}
+        onClick={handleFilter} >Filter</Button>
         </Link>
       </Card.Body>
       </Card>
