@@ -1,7 +1,7 @@
 
 const router = require("express").Router();
-const Bio = require("../models/Bio");
-const User = require("../models/User");
+const Bio = require("../Database/models/bio");
+const User = require("../Database/models/users");
 
 router.get("/", async (req, res) => {
     try {
