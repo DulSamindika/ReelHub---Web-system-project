@@ -6,23 +6,40 @@ import {Link} from 'react-router-dom';
 import axios from 'axios';
 
 
-export default function Filter() {
+export default function Filter({ onFilter }) {
 
   const [name, setName] = useState('');
   const [city, setCity] = useState('');
   const [profession, setProfession] = useState('');
 
 
-  const handleFilter = async () => {
+ /* const handleFilter = async () => {
     try {
-        const response = await axios.get('/api/bioFilter', {
+        const response = await axios.get('http://localhost:5000/userFilter', {
             params: { name, city, profession }
         });
         console.log(response.data);
     } catch (error) {
         console.error(error);
     }
+};*/
+
+const handleFilter = async () => {
+  const filters = {
+    name,
+    city: city || undefined,
+    profession: profession || undefined
+  };
+  try {
+    const response = await axios.get('http://localhost:5000/userFilter', { params: filters });
+    if (response.data.status === 'success') {
+      onFilter(response.data.data);
+    }
+  } catch (error) {
+    console.error(error);
+  }
 };
+
 
   return (
     <div>
