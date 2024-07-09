@@ -24,7 +24,7 @@ router.get("/", async(req, res) => {
             }
         });
     } catch (err) {
-        console.errpr('Error fetching posts:', err);
+        console.err('Error fetching posts:', err);
         res.status(500).json({
             status: 'Failed',
             message: err.message
