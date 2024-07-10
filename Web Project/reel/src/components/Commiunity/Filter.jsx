@@ -26,7 +26,7 @@ export default function Filter({ onFilter }) {
 
 const handleFilter = async () => {
   const filters = {
-    name,
+    name: name || undefined,
     city: city || undefined,
     profession: profession || undefined
   };

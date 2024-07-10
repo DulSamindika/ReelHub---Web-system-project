@@ -49,7 +49,7 @@ export default function Wall() {
         img = {post.img}
         title = {post.title}
         description = {post.description}
-        username={post.user.username} 
+        username={post.user? post.user.username : 'Unknown'} 
         id = {post._id}
         
         

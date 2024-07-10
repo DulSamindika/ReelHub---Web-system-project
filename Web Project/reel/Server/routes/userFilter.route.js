@@ -4,7 +4,8 @@ const Bio = require("../Database/models/bio");
 const User = require("../Database/models/users");
 
 router.get("/", async (req, res) => {
-    try {
+   
+     try {
         const { name, city, profession } = req.query;
 
         let bioQuery = {};
