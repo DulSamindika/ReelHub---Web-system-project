@@ -109,7 +109,7 @@ const EditProfile = () => {
       {imagePreviewUrl && ( 
       <div className="image-preview-container">
       <div className="image-preview-mask">
-        <img src={{imagePreviewUrl}} alt="Profile Preview" className="image-preview" />
+        <img src={imagePreviewUrl} alt="Profile Preview" className="image-preview" />
       </div>
      </div> )}
 
