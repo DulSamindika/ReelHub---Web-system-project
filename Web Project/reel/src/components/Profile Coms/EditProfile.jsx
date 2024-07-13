@@ -50,10 +50,10 @@ const EditProfile = () => {
         const handleSubmit = async (e) => {
             e.preventDefault();
             const formData = new FormData();
-            formData.append('userId', user.id);
-            formData.append('firstname', setFirstName);
-            formData.append('secondname', setSecondName);
-            formData.append('email', setEmail);
+            formData.append('userId', user._id);
+            formData.append('firstname', firstname);
+            formData.append('secondname', secondname);
+            formData.append('email', email);
             if (image) {
                 formData.append('image', image);
               }

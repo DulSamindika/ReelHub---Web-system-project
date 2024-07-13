@@ -30,10 +30,10 @@ const Connect = () => {
         <CardBody className="d-flex align-items-center">
         <Image src="./Images/dp.jpg"  roundedCircle className="me-3" style={{ width: '50px', height: '50px' }} />
         <div className="flex-grow-1">
-            <h3>User {user.user.firstname} {user.user.secondname}</h3>
-            <p>Profession {user.profession}</p>
+            <h2> {user.user.firstname} {user.user.secondname}</h2> 
+            <h3>{user.profession}</h3>
         </div>
-            <Button>
+            <Button variant="danger" style={{padding:'5px' , width:'100px', margin:'20px'}}>
                 Connect
             </Button>
         </CardBody>

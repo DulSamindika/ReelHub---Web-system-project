@@ -74,7 +74,7 @@ import axios from 'axios';
         </Row>
         {/* Additional profile info can be added here */}
         <Row className="d-flex justify-content-center text-center">
-          <h2>Janaka Bandara</h2>
+          
           <h2>{`${userData.firstname} ${userData.secondname}`}</h2>
         </Row>
         <Row className="d-flex justify-content-center text-center">
