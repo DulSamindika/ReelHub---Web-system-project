@@ -17,6 +17,7 @@ import {jwtDecode} from 'jwt-decode';
 import EditProfile from './components/Profile Coms/EditProfile';
 import Gallery from './components/Gallery/Gallery';
 import Connect from './components/Commiunity/Connect';
+import CommentSection from './components/Commiunity/CommentSection';
 
 function App() {
 
@@ -73,6 +74,7 @@ useEffect(() => {
         <Route path='/editProfile' element={<EditProfile/>}/>
         <Route path='/gallery' element={<Gallery/>}/>
         <Route path='/connect' element={<Connect/>}/>
+        <Route path='/comment' element={<CommentSection/>}/>
       </Routes>
       </Router>
       
