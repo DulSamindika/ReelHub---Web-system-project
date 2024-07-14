@@ -1,10 +1,20 @@
-import React from "react";
+import React, {useState} from "react";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import Image from "react-bootstrap/Image";
 //import Row from 'react-bootstrap/Row';
+//import { Link } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import CommentSection from './CommentSection';
 
 const SocialPost = ({img,title,description, username}) => {
+
+  const [showComments, setShowComments] = useState(false);
+
+  const toggleComments = () => {
+    setShowComments(!showComments);
+  };
+
   return ( 
     <>
       <Card style={{ width: "38rem" , margin:"10px"}}>
@@ -22,10 +32,11 @@ const SocialPost = ({img,title,description, username}) => {
         <Card.Img variant="top" src={img} />
         <Card.Body>
          <Card.Text className="size=sm">12 views</Card.Text>
-          <Card.Text>
           
+          <Button variant="light" onClick={toggleComments}>
             <i class="bi bi-chat"></i> Comment
-          </Card.Text>
+          </Button>
+          {showComments && <CommentSection />}
         </Card.Body>
       </Card>
     </>
