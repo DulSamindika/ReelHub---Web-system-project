@@ -13,42 +13,7 @@ export default function Jobs() {
   const [jobs, setJobs] = useState([]);
   const [error, setError] = useState([]);
 
- /* useEffect(() => { 
-
-    axios.get('http://localhost:5000/getJob')
-    .then(res => {
-      if(res.data.status === 'success' && res.data.data.jobs){
-        const jobs = res.data.data.jobs;
-        setJobs(jobs);
-      }else{
-        setError('Unexpected response format from server');
-      }
-    })
-    .catch(err => {
-      if(err.response && err.response.status === 403){
-        setError('Access Denied');
-      }else{
-        setError('Error fetching from server');
-      }
-    });
-  },[]); 
-
-  const fetchJobs = async (filters = {}) => {
-    try {
-      const response = await axios.get('http://localhost:5000/getJob', { params: filters });
-      if (response.data.status === 'success' && response.data.data.jobs) {
-        setJobs(response.data.data.jobs);
-      } else {
-        setError('Unexpected response format from server');
-      }
-    } catch (err) {
-      if (err.response && err.response.status === 403) {
-        setError('Access Denied');
-      } else {
-        setError('Error fetching from server');
-      }
-    }
-  }; */
+ 
 
   const fetchJobs = async (filters = {}) => {
     try {

@@ -80,6 +80,7 @@ const onSubmit = async (data) => {
 console.log('User in Bio:', user);
 
 
+
   return (
     <div>
       <h2>Bio</h2>

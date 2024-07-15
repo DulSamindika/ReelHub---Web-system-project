@@ -5,50 +5,7 @@ const mongoose = require('mongoose');
 //const { authenticate } = require('../middleware/auth');
 
 router.post('/', async (req, res) => {
-    /*try {
-        const { profession, city, education, experience, awards } = req.body;
-        
-       let bio = await Bio.findOne({ userId: req.user.id });
-        
-
-
-        if (bio) {
-            bio.profession = profession.split(',').map(item => item.trim());
-            bio.city = city;
-            bio.education = education.split(',').map(item => item.trim());
-            bio.experience = experience.split(',').map(item => item.trim());
-            bio.awards = awards.split(',').map(item => item.trim());
-            await bio.save();
-
-            bio.profession = profession;
-            bio.city = city;
-            bio.education = education;
-            bio.experience = experience;
-            bio.awards = awards;
-            await bio.save();
-
-        } else {
-            bio = new Bio({
-                /*userId: req.user.id,
-                profession: profession.split(',').map(item => item.trim()),
-                city,
-                education: education.split(',').map(item => item.trim()),
-                experience: experience.split(',').map(item => item.trim()),
-                awards: awards.split(',').map(item => item.trim()),
-
-                userId: req.user.userId,
-                profession,
-                city,
-                education,
-                experience,
-                awards,
-            });
-            await bio.save();
-        }
-        res.json(bio);
-    } catch (error) {
-        res.status(500).send(error);
-    }*/
+    
 
     console.log('Request body:', req.body); // Log the request body
     const { userId, profession, city, education, experience, awards } = req.body;
@@ -85,11 +42,6 @@ router.post('/', async (req, res) => {
                 // If no bio exists, create a new one
                 bio = new Bio({
                     userId: userId,
-                    /*profession: profession.split(',').map(item => item.trim()),
-                    city,
-                    education: education.split(',').map(item => item.trim()),
-                    experience: experience.split(',').map(item => item.trim()),
-                    awards: awards.split(',').map(item => item.trim())*/
                     
                 profession: parseField(profession),
                 city,

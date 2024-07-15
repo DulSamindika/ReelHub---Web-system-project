@@ -58,7 +58,7 @@ export default function Job_filter({onFilter}) {
     </Form.Select>
     <br/>
     <Form.Select aria-label="Select a position" value={position} onChange={(e) => setPosition(e.target.value)}>
-      <option value="">Select Proffession</option>
+      <option value="">Select Proffession</option> 
       <option value="Director">Director</option>
       <option value="Actor">Actor</option>
       <option value="Actress">Actress</option>

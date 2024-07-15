@@ -6,16 +6,7 @@ router.get("/", async(req, res) => {
     
     
     try {
-      /*  const posts = await Post.find({}).populate('author', 'firstname secondname');
-        console.log('Posts fetched from DB:', posts);
-        const formattedPosts = posts.map(post => ({
-            ...post._doc,
-            user: {
-                firstname: post.author.firstname,
-                secondname: post.author.secondname,
-                username: `${post.author.firstname} ${post.author.secondname}`
-            }
-        }));*/
+     
         const posts = await Post.find({});
 
         // Fetch author details separately
