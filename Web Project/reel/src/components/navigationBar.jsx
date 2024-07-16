@@ -30,12 +30,12 @@ function navigationBar() {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-center flex-grow-1 pe-3">
-                <span className="nav-link text-danger:hover">
-                  <Link className="text-danger:hover" to='/'>Home</Link></span>
-                  <Link className="text-danger:hover" to='/communi'><span className="nav-link text-danger:hover">Commiunity</span></Link>
-                  <Link className="text-danger:hover" to='/profile'><span className="nav-link text-danger:hover">Profile</span></Link>
-                  <Link className="text-danger:hover" to='/jobs'><span className="nav-link text-danger:hover">Jobs</span></Link>
-                  <Link className="text-danger:hover" to='/gallery'><span className="nav-link text-danger:hover">Gallery</span></Link>
+                
+                  <Link className="text-danger:hover" style={{textDecoration:'none'}} to='/'><span className="nav-link text-danger:hover">Home</span></Link>
+                  <Link className="text-danger:hover" style={{textDecoration:'none'}} to='/communi'><span className="nav-link text-danger:hover">Commiunity</span></Link>
+                  <Link className="text-danger:hover" style={{textDecoration:'none'}} to='/profile'><span className="nav-link text-danger:hover">Profile</span></Link>
+                  <Link className="text-danger:hover" style={{textDecoration:'none'}} to='/jobs'><span className="nav-link text-danger:hover">Jobs</span></Link>
+                  <Link className="text-danger:hover" style={{textDecoration:'none'}} to='/gallery'><span className="nav-link text-danger:hover">Gallery</span></Link>
                   <NavDropdown
                     title="Dropdown"
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
