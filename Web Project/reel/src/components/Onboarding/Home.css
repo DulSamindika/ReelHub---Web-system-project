@@ -1,3 +1,69 @@
+
+.hero-section {
+  margin-bottom: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-card {
+  display: flex;
+  flex-direction: column;
+  order: 3;
+}
+
+.hero-overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  order: 1;
+}
+
+.hero-title, .hero-text, .btn {
+  order: 2;
+  
+}
+
+.hero-title{
+  background: linear-gradient(
+    to right, 
+    hsl(110, 3%, 54%), 
+    hsl(204, 22%, 91%)
+  );
+  
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+.text-container {
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  z-index: 10;
+}
+
+.statement {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.name {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+
+
+
+
+
+
+
 @keyframes zoom-in-up {
     0% {
       opacity: 0;
@@ -39,4 +105,22 @@
   
   .aos-item.aos-animate {
     opacity: 1; /* When aos-animate class is added, show the element */
+  }
+
+  @media (max-width: 968px) {
+    .hero-section .card-img-overlay {
+      order: 1;
+    }
+  
+    .hero-section .card-img {
+      order: 3;
+    }
+  
+    .hero-section .card-title, .hero-section .card-text, .hero-section .btn {
+      order: 2;
+    }
+  }
+  
+  .bg-black {
+    background-color: black !important;
   }
