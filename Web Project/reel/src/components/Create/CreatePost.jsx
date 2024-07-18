@@ -55,7 +55,7 @@ export default function CreatePost({ user }) {
         </Form.Group>
 
         <Form.Group controlId="formGridContent">
-          <Form.Label>Contect</Form.Label>
+          <Form.Label>Content</Form.Label>
           <Form.Control type="text" placeholder="Add contect" value={description}
                 onChange={(e) => setDescription(e.target.value)} />
         </Form.Group>

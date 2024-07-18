@@ -16,6 +16,8 @@ const getBio = require('./routes/getBio.route.js');
 const getUser = require('./routes/getUser.route.js');
 const editProfile = require('./routes/editProfile.route.js');
 const userFilter = require('./routes/userFilter.route.js');
+const addPortfolio = require('./routes/addToPortfolio.route.js');
+const shortFilm = require('./routes/shortFilm.route.js');
 const path = require('path');
 
 const PORT = 5000;
@@ -40,6 +42,8 @@ app.use('/getBio', getBio);
 app.use('/getUser', getUser);
 app.use('/editProfile', editProfile);
 app.use('/userFilter', userFilter);
+app.use('/addPortfolio', addPortfolio);
+app.use('/shortfilm', shortFilm);
 
 
 app.listen(PORT, ()=> {
