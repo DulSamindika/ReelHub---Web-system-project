@@ -24,24 +24,7 @@ function App() {
 
   const [user, setUser] = useState(null);
 
- /* useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      setUser({ token }); // Fetch more user info if needed
-    }
-  }, []);
-
-  useEffect(() => {
-    // Retrieve token from local storage
-    const token = localStorage.getItem('token');
-    if (token) {
-        const userData = {
-            id: '66519d232b9cd939fd32fcfd',   // Example userId, ideally should decode from token or fetch from server
-            token
-        };
-        setUser(userData);
-    }
-}, []);*/
+ 
 
 useEffect(() => {
   const token = localStorage.getItem('token');
