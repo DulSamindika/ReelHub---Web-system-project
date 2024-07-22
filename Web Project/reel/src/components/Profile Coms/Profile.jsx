@@ -67,7 +67,8 @@ import axios from 'axios';
           <Col className="d-flex justify-content-center">
             {/* Profile Picture */}
             <div className="profile-picture">
-              <Image src="./Images/dp.jpg" roundedCircle style={{height:'200px', width:'200px', alignContent:"center"}}/>
+              {/*<Image src="./Images/dp.jpg" roundedCircle style={{height:'200px', width:'200px', alignContent:"center"}}/>*/}
+              <Image src={userData.profilePicture} roundedCircle style={{height:'200px', width:'200px', alignContent:"center"}}/>
             </div>
           </Col>
           

@@ -26,9 +26,10 @@ const Connect = () => {
       <Col sm={9}>
       <Row>
       {filteredUsers.map((user) => (
-      <Card key={user._id}>
+      <Card key={user._id} style={{margin:'10px'}}>
         <CardBody className="d-flex align-items-center">
-        <Image src="./Images/dp.jpg"  roundedCircle className="me-3" style={{ width: '50px', height: '50px' }} />
+        {/*<Image src="./Images/dp.jpg"  roundedCircle className="me-3" style={{ width: '50px', height: '50px' }} />*/}
+        <Image src={user.user.profilePicture}  roundedCircle className="me-3" style={{ width: '50px', height: '50px' }} />
         <div className="flex-grow-1">
             <h2> {user.user.firstname} {user.user.secondname}</h2> 
             <h3>{user.profession}</h3>

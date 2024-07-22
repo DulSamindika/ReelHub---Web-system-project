@@ -29,8 +29,8 @@ export default function Home() {
         <Button variant="danger">Join Us</Button></Link>
         
       </Card.ImgOverlay>
-    </Card> 
-    </div>*/}
+    </Card>
+    </div>
 
 <div className="hero-section">
         <Card className="bg-black text-white hero-card" style={{ height: '500px', padding: 0, margin: 0 }}>
@@ -45,7 +45,16 @@ export default function Home() {
             </Link>
           </Card.ImgOverlay>
         </Card>
-      </div>
+      </div>*/}
+
+      <div class="head-section">
+        <img src="./Images/Hero.jpg" alt="Hero" class="head-image"/>
+        <div class="head-overlay">
+            <h1 class="head-title">Your film needs you</h1>
+            <p class="head-text">Join our community and start making magic today!</p>
+            <a href="/Reg" class="head-button">Join Us</a>
+        </div>
+       </div>
    
     <div className="bg-black" style={{paddingTop:'6vh', paddingBottom:'6vh'}}>
   <div className="container bg-black rounded-5 shadow" style={{paddingTop:'6vh', paddingBottom:'6vh', paddingLeft:'5vw',paddingRight:'5vw'}}>
