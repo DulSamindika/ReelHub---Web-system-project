@@ -6,6 +6,7 @@ import Filter from './Filter';
 import SocialPost from './SocialPost';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import Awards from './Awards';
 
 export default function Wall() {
 
@@ -59,7 +60,7 @@ export default function Wall() {
         </div>
       </Col>
       
-        <Col>3 of 3</Col>
+        <Col><Awards/></Col>
       </Row>
      </Container>
     </>

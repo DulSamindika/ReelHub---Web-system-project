@@ -34,6 +34,8 @@ router.post('/', async (req, res) => {
             }
         });
     } catch (err) {
+        console.error('Error details:', err);
+        
         let errorMessage;
 
         if (err.code === 11000) {
