@@ -38,9 +38,10 @@ export default function Wall() {
     <>
       <Container>
       <Row>
-        <Col> <Filter/> </Col>
+        <Col md={3} className="d-none d-md-block"> <Filter/> </Col>
         
-        <Col xs={6}>
+        {/*<Col xs={6}>*/}
+        <Col xs={12} md={6}>
         <div style={{ maxHeight: "calc(100vh - 100px)", overflowY: "auto" }}>
           <SocialPost/>
           {
@@ -60,7 +61,7 @@ export default function Wall() {
         </div>
       </Col>
       
-        <Col><Awards/></Col>
+        <Col md={3} className="d-none d-md-block"><Awards/></Col>
       </Row>
      </Container>
     </>

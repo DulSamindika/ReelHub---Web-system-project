@@ -17,7 +17,8 @@ const SocialPost = ({img,title,description, username}) => {
 
   return ( 
     <>
-      <Card style={{ width: "38rem" , margin:"10px"}}>
+      {/*<Card style={{ width: "38rem" , margin:"10px"}}>*/}
+      <Card className="mb-3" style={{ maxWidth: "100%", margin: "10px" }}>
         <Card.Header variant="dark">
           <Image src="fgh" roundedCircle className="me-2 avatar-sm" />
           Artist Name{" "}

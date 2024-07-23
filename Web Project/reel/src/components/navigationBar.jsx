@@ -10,6 +10,21 @@ import {Link} from 'react-router-dom';
 
 function navigationBar() {
 
+  /*const [user, setUser] = useState(null); // Replace with your user state management logic
+
+  useEffect(() => {
+    // Replace with actual user authentication check
+    const checkUser = async () => {
+      // Example logic to get user data (could be from API, localStorage, etc.)
+      const userData = await get(`http://localhost:5000/getUser/${user.id}`); // Modify this URL based on your API
+      const result = await userData.json();
+      setUser(result.user);
+    };
+
+    checkUser();
+  }, []);*/
+
+
 
   return (
    <>
