@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/esm/Button';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import './Home.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';

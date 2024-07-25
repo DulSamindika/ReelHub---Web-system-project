@@ -3,14 +3,11 @@ const Job = require("../Database/models/jobs")
 
 router.get("/", async(req, res) => {
     
-    
     try {
-
         const { title, province , position, isPaid } = req.query;
-
         let query = {};
 
-        if (title) query.title = new RegExp(title, 'i'); // case-insensitive search
+        if (title) query.title = new RegExp(title, 'i'); 
         if (province) query.province = province;
         if (position) query.title = new RegExp(position, 'i');
         if (isPaid !== undefined) query.isPaid = isPaid === 'true';
@@ -22,7 +19,6 @@ router.get("/", async(req, res) => {
                 jobs
             }
         });
-
 
     } catch (err) {
         res.status(500).json({

@@ -14,10 +14,10 @@ if (!fs.existsSync(uploadsDir)) {
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, uploadsDir); // directory to save the files
+    cb(null, uploadsDir); 
   },
   filename: function (req, file, cb) {
-    cb(null, Date.now() + path.extname(file.originalname)); // save files with unique names
+    cb(null, Date.now() + path.extname(file.originalname)); 
   }
 });
  

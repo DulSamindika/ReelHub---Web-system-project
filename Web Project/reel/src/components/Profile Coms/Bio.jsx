@@ -19,7 +19,6 @@ const Bio = ({ user }) => {
     });
 
     const [show, setShow] = useState(false);
-    //const [user, setUser] = useState(null);
     const { register, handleSubmit, reset } = useForm();
 
     const handleClose = () => setShow(false);
@@ -84,7 +83,7 @@ console.log('User in Bio:', user);
   return (
     <div>
       <h2>Bio</h2>
-      <p>This is the Bio section.</p>
+      <p>Let them know who you are</p>
       
 
       <Container>
