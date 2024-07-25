@@ -28,7 +28,7 @@ export default function Login({ setUser }) {
       setUser(userData);
 
       // Redirect or update UI as needed
-      window.location.href = '/Bio'; // Example redirect after login
+      window.location.href = '/profile'; 
 
     } catch (error) {
       setError('Invalid email or password');

@@ -41,7 +41,7 @@ export default function AddWork() {
       formData.append("portfolioId", portfolioId);
 
       // Submit shortfilm
-      await axios.post("http://localhost:5000//api/Shortfilm", formData, {
+      await axios.post("http://localhost:5000/Shortfilm", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -102,7 +102,7 @@ export default function AddWork() {
                 type="text"
                 placeholder="Add Title"
                 value={filmtitle}
-                onChange={(e) => setFilmTitle(e.target.value)}
+                onChange={(e) => setFilmTitle(e.target.value[0])}
               />
             </Form.Group>
 
@@ -112,7 +112,7 @@ export default function AddWork() {
                 type="text"
                 placeholder="Add movie summery around 30 words."
                 value={summary}
-                onChange={(e) => setSummary(e.target.value)}
+                onChange={(e) => setSummary(e.target.value[0])}
               />
             </Form.Group>
             

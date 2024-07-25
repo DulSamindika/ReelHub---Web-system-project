@@ -79,7 +79,7 @@ import axios from 'axios';
           <h2>{`${userData.firstname} ${userData.secondname}`}</h2>
         </Row>
         <Row className="d-flex justify-content-center text-center">
-          <h4>Actor/Script Writer </h4>
+          {/*<h4>Actor/Script Writer </h4>*/}
           {console.log('User in Profile component:', user)}
         </Row>
         
@@ -123,9 +123,9 @@ import axios from 'axios';
         </Nav>
       </Card.Header>
       <Card.Body>
-        <Card.Title>Special title treatment</Card.Title>
+        <Card.Title></Card.Title>
         <Card.Text>
-          With supporting text below as a natural lead-in to additional content.
+          
           {renderContent()}
         </Card.Text>
         
