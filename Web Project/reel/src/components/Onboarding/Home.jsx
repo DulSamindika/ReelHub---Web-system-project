@@ -17,35 +17,7 @@ export default function Home() {
 
   return (
     <>
-   { /* <div className="hero-section bg-transparent">
-      <Card className="bg-black text-white" style={{ height: '500px', padding: 0, margin:0, backgroundColor:'black'}}>
-      <Card.Img src="./Images/Hero.jpg" alt="Card image"  data-aos='zoom-in-up'/>
-      <Card.ImgOverlay style={{ display: 'flex', alignItems: 'center', flexDirection: 'column'}} className="hero-overlay">
-        <Card.Title style={{ fontSize: '4rem', textAlign: 'center',paddingTop:'100px' }}>Your film needs you</Card.Title>
-        <Card.Text style={{ fontSize: '3rem', textAlign: 'center' }}>
-          Join our community and start making magic today!
-        </Card.Text>
-        <Link to='/Reg'>
-        <Button variant="danger">Join Us</Button></Link>
-        
-      </Card.ImgOverlay>
-    </Card>
-    </div>
-
-<div className="hero-section">
-        <Card className="bg-black text-white hero-card" style={{ height: '500px', padding: 0, margin: 0 }}>
-          <Card.Img src="./Images/Hero.jpg" alt="Card image" data-aos='zoom-in-up' className='hero-image'/>
-          <Card.ImgOverlay style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }} className='hero-overlay'>
-            <Card.Title style={{ fontSize: '4rem', textAlign: 'center', paddingTop: '100px' }}>Your film needs you</Card.Title>
-            <Card.Text style={{ fontSize: '2rem', textAlign: 'center' }} className='display-4'>
-              Join our community and start making magic today!
-            </Card.Text>
-            <Link to='/Reg'>
-              <Button variant="danger" style={{marginTop:'30px'}}>Join Us</Button>
-            </Link>
-          </Card.ImgOverlay>
-        </Card>
-      </div>*/}
+   
 
       <div class="head-section">
         <img src="./Images/Hero.jpg" alt="Hero" class="head-image"/>
