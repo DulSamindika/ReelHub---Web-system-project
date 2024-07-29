@@ -27,13 +27,13 @@ import axios from 'axios';
         headers: { 'Authorization': `Bearer ${user.token}` }
       });
 
-      setUserData(response.data); // Assuming response.data contains user data
+      setUserData(response.data); 
     } catch (error) {
       console.error('Error fetching user data:', error);
     }
   }, [user]);
 
-  // Fetch user data on component mount
+ 
   useEffect(() => {
     fetchUserData();
   }, [fetchUserData]);
@@ -73,13 +73,13 @@ import axios from 'axios';
           </Col>
           
         </Row>
-        {/* Additional profile info can be added here */}
+        
         <Row className="d-flex justify-content-center text-center">
           
           <h2>{`${userData.firstname} ${userData.secondname}`}</h2>
         </Row>
         <Row className="d-flex justify-content-center text-center">
-          {/*<h4>Actor/Script Writer </h4>*/}
+          
           {console.log('User in Profile component:', user)}
         </Row>
         
