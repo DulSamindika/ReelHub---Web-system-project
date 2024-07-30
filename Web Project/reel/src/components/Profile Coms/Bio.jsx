@@ -34,7 +34,7 @@ const Bio = ({ user }) => {
         return;
     try {
         const response = await axios.get(`http://localhost:5000/getBio/${user.id}`, {
-            headers: { 'Authorization': `Bearer ${user.token}` } // Assuming user object contains token
+            headers: { 'Authorization': `Bearer ${user.token}` } 
         });
         console.log('Bio data fetched:', response.data);
         setBioData(response.data);

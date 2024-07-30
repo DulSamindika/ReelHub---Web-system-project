@@ -35,6 +35,7 @@ export default function CreatePost({ user }) {
                   'Authorization': `Bearer ${user.token}`
                 }
               });
+              alert("Post Created");
               console.log(response.data);
             } catch (error) {
               console.error("There was an error creating the post!", error);
@@ -44,7 +45,7 @@ export default function CreatePost({ user }) {
 
   return (
     <div>
-      Create a Post
+      <h2 style={{ textAlign: 'center', margin:'20px'}}>Create a Post</h2>
       <Container style={{maxWidth:'700px'}}>
       <Form onSubmit={handleSubmit}>
       <Row className="mb-3">

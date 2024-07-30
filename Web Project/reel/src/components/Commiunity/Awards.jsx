@@ -5,7 +5,7 @@ import Card from 'react-bootstrap/Card';
 const Awards = () => {
   return (
     <div>
-      <h2>Activity</h2>
+      <h2>Awards</h2>
       
 
       <Card className="text-center">
@@ -19,7 +19,7 @@ const Awards = () => {
 - Nominees will be selected from those longlists.
 - All nominees will be invited to the awards ceremony.
         </Card.Text>
-        <Button variant="primary">Apply Now</Button>
+        <Button variant="danger">Apply Now</Button>
       </Card.Body>
       <Card.Footer className="text-muted">Deadline: Augest 23</Card.Footer>
     </Card>

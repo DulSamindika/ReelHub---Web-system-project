@@ -30,9 +30,9 @@ export default function Job_filter({onFilter}) {
   return (
     <div>
       
-      Find Jobs
+      
       <Card className="text-center">
-      <Card.Header variant="dark" style={{backgroundColor:'black', color:"white"}}>Find Artist</Card.Header>
+      <Card.Header variant="dark" style={{backgroundColor:'black', color:"white"}}>Find Jobs</Card.Header>
       <Card.Body>
         <Card.Text>
           Search by Title
