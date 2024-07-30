@@ -28,6 +28,7 @@ export default function Login({ setUser }) {
       setUser(userData);
 
       // Redirect or update UI as needed
+      alert("You have successfully loged in");
       window.location.href = '/profile'; 
 
     } catch (error) {

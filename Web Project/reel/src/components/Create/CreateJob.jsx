@@ -44,6 +44,7 @@ export default function CreateJob() {
                   'Content-Type': 'multipart/form-data'
                 }
               });
+              alert("Job Post Published");
               console.log(response.data);
             } catch (error) {
               console.error("There was an error creating the post!", error);

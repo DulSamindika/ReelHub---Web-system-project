@@ -146,7 +146,6 @@ const EditProfile = () => {
   useEffect(() => {
     if (!user) {
       console.error('User is null, redirecting to login');
-      // navigate('/login'); // Uncomment if you want to redirect to login
       return;
     }
     setFirstName(user.firstname || "");
@@ -161,7 +160,7 @@ const EditProfile = () => {
       setImage(file);
       setImagePreviewUrl(URL.createObjectURL(file));
     } else {
-      console.log("No file selected or file selection was invalid."); // Debugging log
+      console.log("No file selected or file selection was invalid."); 
       setImage(null);
       setImagePreviewUrl(null);
     }
@@ -185,6 +184,7 @@ const EditProfile = () => {
           'Authorization': `Bearer ${user.token}`
         }
       });
+      alert("Profile Updated");
       console.log(response.data);
     } catch (error) {
       console.error("There was an error updating the profile!", error);

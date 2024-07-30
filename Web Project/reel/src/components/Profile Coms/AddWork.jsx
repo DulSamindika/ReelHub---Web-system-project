@@ -16,7 +16,7 @@ export default function AddWork() {
   //const [videoUrl, setVideoUrl] = useState("");
   const [videoFile, setVideoFile] = useState(null);
   const [coverImage, setCoverImage] = useState(null);
-  const [portfolioId, setPortfolioId] = useState(""); // Add this if you have a way to select portfolio
+  //const [portfolioId, setPortfolioId] = useState(""); // Add this if you have a way to select portfolio
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,20 +27,20 @@ export default function AddWork() {
     formData.append("genre", genre);
     formData.append("videoFile", videoFile);
     formData.append("coverImage", coverImage);
-    formData.append("portfolioId", portfolioId);
+    //formData.append("portfolioId", portfolioId);
 
     try {
-      // Submit portfolio project
+      
       const portfolioResponse = await axios.post("http://localhost:5000/addPortfolio", {
         title,
         description,
       });
 
-      // Assuming you have the portfolioId now
+      
       const portfolioId = portfolioResponse.data._id;
       formData.append("portfolioId", portfolioId);
 
-      // Submit shortfilm
+      
       await axios.post("http://localhost:5000/Shortfilm", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
@@ -102,7 +102,7 @@ export default function AddWork() {
                 type="text"
                 placeholder="Add Title"
                 value={filmtitle}
-                onChange={(e) => setFilmTitle(e.target.value[0])}
+                onChange={(e) => setFilmTitle(e.target.value)}
               />
             </Form.Group>
 
@@ -112,7 +112,7 @@ export default function AddWork() {
                 type="text"
                 placeholder="Add movie summery around 30 words."
                 value={summary}
-                onChange={(e) => setSummary(e.target.value[0])}
+                onChange={(e) => setSummary(e.target.value)}
               />
             </Form.Group>
             
