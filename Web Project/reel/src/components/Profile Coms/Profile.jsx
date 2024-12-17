@@ -23,7 +23,7 @@ import axios from 'axios';
       return;
 
     try {
-      const response = await axios.get(`http://localhost:5000/getUser/${user.id}`, {
+      const response = await axios.get(`https://web-776724771357.us-central1.run.app/getUser/${user.id}`, {
         headers: { 'Authorization': `Bearer ${user.token}` }
       });
 

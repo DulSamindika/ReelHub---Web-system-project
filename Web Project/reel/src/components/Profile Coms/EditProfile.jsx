@@ -178,7 +178,7 @@ const EditProfile = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:5000/editProfile', formData, {
+      const response = await axios.post('https://web-776724771357.us-central1.run.app/editProfile', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           'Authorization': `Bearer ${user.token}`

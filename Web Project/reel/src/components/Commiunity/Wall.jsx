@@ -16,7 +16,7 @@ export default function Wall() {
   useEffect(() => { 
 
   
-    axios.get('http://localhost:5000/getPosts')
+    axios.get('https://web-776724771357.us-central1.run.app/getPosts')
     .then(res => {
       if(res.data.status === 'success' && res.data.data.posts){
         const Posts = res.data.data.posts;

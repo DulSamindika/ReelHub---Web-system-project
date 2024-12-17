@@ -29,7 +29,7 @@ export default function CreatePost({ user }) {
             images.forEach(image => formData.append('images', image));
         
             try {
-              const response = await axios.post('http://localhost:5000/create', formData, {
+              const response = await axios.post('https://web-776724771357.us-central1.run.app/create', formData, {
                 headers: {
                   'Content-Type': 'multipart/form-data',
                   'Authorization': `Bearer ${user.token}`
@@ -78,7 +78,7 @@ export default function CreatePost({ user }) {
         <Form.Check type="radio" label="Private" />
       </Form.Group>
 
-      <Button variant="primary" type="submit">
+      <Button variant="danger" type="submit">
         Submit
       </Button>
     </Form>

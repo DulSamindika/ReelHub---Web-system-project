@@ -12,7 +12,7 @@ export default function Login({ setUser }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/login', { email, password });
+      const response = await axios.post('https://web-776724771357.us-central1.run.app/login', { email, password });
       const { token } = response.data;
 
       // Save the token in local storage or state
