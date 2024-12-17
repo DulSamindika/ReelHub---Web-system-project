@@ -26,7 +26,7 @@ export default function Jobs() {
       }
 
       const queryString = new URLSearchParams(validFilters).toString();
-      const response = await axios.get(`http://localhost:5000/getJob?${queryString}`);
+      const response = await axios.get(`https://web-776724771357.us-central1.run.app/getJob?${queryString}`);
       
       // Update the browser URL with the current filters
       window.history.pushState(null, '', `?${queryString}`);

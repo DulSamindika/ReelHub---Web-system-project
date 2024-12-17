@@ -30,7 +30,7 @@ export default function Registration() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:5000/reg', formData);
+            await axios.post('https://web-776724771357.us-central1.run.app/reg', formData);
             console.log('Registration successful');
             setError('');  // Reset error on success
             navigate('/Login');  // Redirect to login page

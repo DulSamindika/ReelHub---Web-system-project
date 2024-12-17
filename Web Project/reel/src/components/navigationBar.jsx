@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 //import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+//import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import {Link} from 'react-router-dom';
 
@@ -39,19 +39,7 @@ function navigationBar() {
                   <Link className="text-danger:hover" style={{textDecoration:'none'}} to='/profile'><span className="nav-link text-danger:hover">Profile</span></Link>
                   <Link className="text-danger:hover" style={{textDecoration:'none'}} to='/jobs'><span className="nav-link text-danger:hover">Jobs</span></Link>
                   <Link className="text-danger:hover" style={{textDecoration:'none'}} to='/gallery'><span className="nav-link text-danger:hover">Gallery</span></Link>
-                  <NavDropdown
-                    title="Dropdown"
-                    id={`offcanvasNavbarDropdown-expand-${expand}`}
-                  >
-                    <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action4">
-                      Another action
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action5">
-                      Something else here
-                    </NavDropdown.Item>
-                  </NavDropdown>
+
                 </Nav>
                 
                   <Link to='/Login'>

@@ -33,7 +33,7 @@ const Bio = ({ user }) => {
     if (!user ) 
         return;
     try {
-        const response = await axios.get(`http://localhost:5000/getBio/${user.id}`, {
+        const response = await axios.get(`https://web-776724771357.us-central1.run.app/getBio/${user.id}`, {
             headers: { 'Authorization': `Bearer ${user.token}` } 
         });
         console.log('Bio data fetched:', response.data);

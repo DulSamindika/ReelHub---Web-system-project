@@ -31,7 +31,7 @@ const handleFilter = async () => {
     profession: profession || undefined
   };
   try {
-    const response = await axios.get('http://localhost:5000/userFilter', { params: filters });
+    const response = await axios.get('https://web-776724771357.us-central1.run.app/userFilter', { params: filters });
     if (response.data.status === 'success') {
       onFilter(response.data.data);
     }
