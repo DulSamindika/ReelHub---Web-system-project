@@ -2,12 +2,15 @@ import React, {useState} from 'react';
 import './Login.css';
 import axios from 'axios';
 import {jwtDecode} from 'jwt-decode';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login({ setUser }) {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,7 +32,8 @@ export default function Login({ setUser }) {
 
       // Redirect or update UI as needed
       alert("You have successfully loged in");
-      window.location.href = '/profile'; 
+      // window.location.href = '/profile'; 
+      navigate('/profile');
 
     } catch (error) {
       setError('Invalid email or password');
