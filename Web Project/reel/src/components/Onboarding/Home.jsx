@@ -92,22 +92,34 @@ export default function Home() {
 </div>
 
 </div>
-<div className="bg-dark position-relative " style = {{padding :'40px'}}>
-  <div className="container px-vw-5 py-vh-5 ">
-    <div className="row d-flex align-items-center">
 
-      <div className="col-12 col-lg-7">
-        {/*<img className="img-fluid rounded-5 mb-n5 shadow" src="./Images/person9.jpg" width="512" height="512" alt="a nice person" loading="lazy" data-aos="zoom-in-right" />*/}
-        <img className="img-fluid rounded-5 ms-5 mb-n5 shadow" src="./Images/person11.jpg" width="352" height="352" alt="another nice person" loading="lazy" data-aos="zoom-in-up" />
+
+<div className="bg-dark position-relative" style={{ padding: '40px' }}>
+  <div className="container px-3 py-5">
+    <div className="row d-flex align-items-center">
+      <div className="col-12 col-lg-7 order-1 order-lg-0 mb-4 mb-lg-0 text-center">
+        <img
+          className="img-fluid rounded-5 shadow"
+          src="./Images/person11.jpg"
+          width="352"
+          height="352"
+          alt="another nice person"
+          loading="lazy"
+          data-aos="zoom-in-up"
+        />
       </div>
-      <div className="col-12 col-lg-5 text-container" >
-        <span className="statement">Joining ReelHub has been a game-changer for my filmmaking journey, allowing me to gain valuable insights, showcase my work, and find the perfect collaborators for my projects. If you're serious about filmmaking, ReelHub is the place to be!"</span>
-        <h2 className="name">- Ashan Mendis</h2>
+  
+      <div className="col-12 col-lg-5 order-0 order-lg-1 text-lg-start">
+        <span className="d-block mb-3" style={{ color: '#ffffff' }}>
+          "Joining ReelHub has been a game-changer for my filmmaking journey, allowing me to gain
+          valuable insights, showcase my work, and find the perfect collaborators for my projects. If
+          you're serious about filmmaking, ReelHub is the place to be!"
+        </span>
+        <h2 className="name" style={{ color: '#ffffff' }}>- Ashan Mendis</h2>
       </div>
     </div>
   </div>
 </div>
-
 
 
     </>
