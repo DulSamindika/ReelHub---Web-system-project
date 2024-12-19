@@ -66,7 +66,7 @@ const onSubmit = async (data) => {
     };
 
     try {
-        const response = await axios.post('http://localhost:5000/editBio', formattedData, {
+        const response = await axios.post('https://web-776724771357.us-central1.run.app/editBio', formattedData, {
             headers: { 'Authorization': `Bearer ${user.token}` } // Assuming user object contains token
         });
         setBioData(response.data);
